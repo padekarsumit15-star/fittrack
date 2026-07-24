@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#22c55e">
+  <meta name="description" content="FitTrack calorie and nutrition tracker">
+
+  <title>FitTrack</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Onboarding -->
+  <section id="onboarding" class="screen">
+    <div class="onboarding-box">
+      <h1>FitTrack</h1>
+      <p>Set up your profile to start tracking.</p>
+
+      <input id="name" type="text" placeholder="Name">
+      <input id="age" type="number" placeholder="Age">
+
+      <select id="gender">
+        <option value="">Sex</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <input id="height" type="number" placeholder="Height (cm)">
+      <input id="weight" type="number" step="0.1" placeholder="Weight (kg)">
+      <input id="targetWeight" type="number" step="0.1" placeholder="Target weight (kg)">
+
+      <select id="goal">
+        <option value="gain">Gain weight</option>
+        <option value="maintain">Maintain weight</option>
+        <option value="lose">Lose weight</option>
+      </select>
+
+      <select id="activity">
+        <option value="1.2">Sedentary</option>
+        <option value="1.375">Lightly active</option>
+        <option value="1.55" selected>Moderately active</option>
+        <option value="1.725">Very active</option>
+      </select>
+
+      <button id="startBtn" class="primary">Start Tracking</button>
+    </div>
+  </section>
+
+
+  <!-- Main App -->
+  <main id="mainApp" class="hidden">
+
+    <header>
+      <div>
+        <small id="greeting">Good morning</small>
+        <h1 id="pageTitle">FitTrack</h1>
+      </div>
+
+      <button id="profileBtn" class="icon-btn">👤</button>
+    </header>
+
+
+    <!--
+      JavaScript generates:
+      Home
+      Diary
+      Add Food
+      Progress
+      Profile
+    -->
+    <section id="content"></section>
+
+
+    <!-- Navigation -->
+    <nav id="bottomNav">
+      <button data-page="home" class="active">
+        <span>🏠</span>Home
+      </button>
+
+      <button data-page="diary">
+        <span>🍽️</span>Diary
+      </button>
+
+      <button data-page="add" class="add-button">
+        <span>＋</span>Add
+      </button>
+
+      <button data-page="progress">
+        <span>📊</span>Progress
+      </button>
+
+      <button data-page="profile">
+        <span>👤</span>Profile
+      </button>
+    </nav>
+
+  </main>
+
+
+  <!-- Reusable Bottom Modal -->
+  <div id="modal" class="modal hidden">
+    <div id="modalBackdrop" class="modal-backdrop"></div>
+
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+
+  <!-- Confirmation -->
+  <div id="confirmBox" class="confirm-box hidden">
+    <div class="confirm-card">
+      <h3 id="confirmTitle">Confirm</h3>
+      <p id="confirmText"></p>
+
+      <div class="confirm-actions">
+        <button id="cancelConfirm">Cancel</button>
+        <button id="acceptConfirm" class="danger">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Notification -->
+  <div id="toast" class="toast"></div>
+
+
+  <!-- Scripts -->
+  <script src="js/foods.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
